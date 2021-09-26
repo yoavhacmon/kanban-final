@@ -61,7 +61,7 @@ function addToDoneList() {
 document.getElementById("submit-add-done").addEventListener("click", addToDoneList)
 
 
-window.onload = loadTasksFromLocalStorage();
+
 
 let saving = setInterval(function saveTasksInLocalStorage() {
     tasksObj["todo"].splice(0);
@@ -147,6 +147,7 @@ function loadTasksFromLocalStorage() {
     }
 }
 
+window.onload = loadTasksFromLocalStorage();
 //edit function:
 
 function editTask() {
