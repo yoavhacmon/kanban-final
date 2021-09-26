@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,43 @@
     <link rel="stylesheet" href="./styles.css" />
     <title>Tasks manager</title>
 </head>
+
 <body>
+    <div id="buttons">
+        <button id="save-button">save</button>
+        <button id="dont-save-button">don't save</button>
+        <button id="clear">clear all</button>
+    </div>
+    <h1 id="page-title">The Place To Organize Your Tasks</h1>
+    <div id="indentation">Here you can write what you have to do, what you are stil doing and what task you finished!
+    </div>
+    <input type="text" id="search" onkeyup="searchTask()" placeholder="search">
+    <main id="main">
+        <section id="to-do-tasks" class="lists">
+            <h4>To Do</h4>
+            <ul id="to-do-tasks-list" class="to-do-tasks">
+            </ul>
+            <input type="text" id="add-to-do-task">
+            <button id="submit-add-to-do">add</button>
+            <button id="clear-to-do">clear</button>
+        </section>
+        <section id="in-progress-tasks" class="lists">
+            <h4>In Progress</h4>
+            <ul id="in-progress-tasks-list" class="in-progress-tasks">
+            </ul>
+            <input type="text" id="add-in-progress-task">
+            <button id="submit-add-in-progress">add</button>
+            <button id="clear-in-progress">clear</button>
+        </section>
+        <section id="done-tasks" class="lists">
+            <h4>Done</h4>
+            <ul id="done-tasks-list" class="done-tasks">
+            </ul>
+            <input type="text" id="add-done-task">
+            <button id="submit-add-done">add</button>
+            <button id="clear-done">clear</button>
+        </section>
+    </main>
 </body>
+
 </html>
