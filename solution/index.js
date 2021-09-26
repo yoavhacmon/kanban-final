@@ -4,6 +4,63 @@ const tasksObj = {
     "done": []
 }
 
+function addToToDoList() {
+    if (document.getElementById("add-to-do-task").value == "") {
+        alert("write somthing...")
+        return
+    }
+    let list = document.getElementById("to-do-tasks-list");
+    let newEl = document.createElement("li");
+    const taskToAdd = document.getElementById("add-to-do-task").value;
+    newEl.textContent = taskToAdd;
+    newEl.setAttribute("id", "task")
+    newEl.classList.add("task");
+    newEl.setAttribute("tabindex", "-1")
+    newEl.addEventListener("dblclick", editTask) //edit event
+    newEl.addEventListener("mouseover", focusOnElement) // moving list event (alt + 1/2/3)
+    list.append(newEl);
+
+}
+document.getElementById("submit-add-to-do").addEventListener("click", addToToDoList)
+
+function addToInProgressList() {
+    if (document.getElementById("add-in-progress-task").value == "") {
+        alert("write somthing...")
+        return
+    }
+    let list = document.getElementById("in-progress-tasks-list");
+    let newEl = document.createElement("li");
+    const taskToAdd = document.getElementById("add-in-progress-task").value;
+    newEl.textContent = taskToAdd
+    newEl.setAttribute("id", "task")
+    newEl.classList.add("task");
+    newEl.setAttribute("tabindex", "-1")
+    newEl.addEventListener("mouseover", focusOnElement) // moving list event (alt + 1/2/3)
+    newEl.addEventListener("dblclick", editTask)  //edit event
+    list.append(newEl);
+
+}
+document.getElementById("submit-add-in-progress").addEventListener("click", addToInProgressList)
+
+function addToDoneList() {
+    if (document.getElementById("add-done-task").value == "") {
+        alert("write somthing...")
+        return
+    }
+    let list = document.getElementById("done-tasks-list");
+    let newEl = document.createElement("li");
+    const taskToAdd = document.getElementById("add-done-task").value;
+    newEl.textContent = taskToAdd
+    newEl.setAttribute("id", "task")
+    newEl.classList.add("task");
+    newEl.setAttribute("tabindex", "-1")
+    newEl.addEventListener("mouseover", focusOnElement) // moving list event (alt + 1/2/3)
+    newEl.addEventListener("dblclick", editTask)  //edit event
+    list.append(newEl);
+}
+document.getElementById("submit-add-done").addEventListener("click", addToDoneList)
+
+
 window.onload = loadTasksFromLocalStorage();
 
 let saving = setInterval(function saveTasksInLocalStorage() {
@@ -89,63 +146,6 @@ function loadTasksFromLocalStorage() {
         doneList.append(newEl);
     }
 }
-
-function addToToDoList() {
-    if (document.getElementById("add-to-do-task").value == "") {
-        alert("write somthing...")
-        return
-    }
-    let list = document.getElementById("to-do-tasks-list");
-    let newEl = document.createElement("li");
-    const taskToAdd = document.getElementById("add-to-do-task").value;
-    newEl.textContent = taskToAdd;
-    newEl.setAttribute("id", "task")
-    newEl.classList.add("task");
-    newEl.setAttribute("tabindex", "-1")
-    newEl.addEventListener("dblclick", editTask) //edit event
-    newEl.addEventListener("mouseover", focusOnElement) // moving list event (alt + 1/2/3)
-    list.append(newEl);
-
-}
-document.getElementById("submit-add-to-do").addEventListener("click", addToToDoList)
-
-function addToInProgressList() {
-    if (document.getElementById("add-in-progress-task").value == "") {
-        alert("write somthing...")
-        return
-    }
-    let list = document.getElementById("in-progress-tasks-list");
-    let newEl = document.createElement("li");
-    const taskToAdd = document.getElementById("add-in-progress-task").value;
-    newEl.textContent = taskToAdd
-    newEl.setAttribute("id", "task")
-    newEl.classList.add("task");
-    newEl.setAttribute("tabindex", "-1")
-    newEl.addEventListener("mouseover", focusOnElement) // moving list event (alt + 1/2/3)
-    newEl.addEventListener("dblclick", editTask)  //edit event
-    list.append(newEl);
-
-}
-document.getElementById("submit-add-in-progress").addEventListener("click", addToInProgressList)
-
-function addToDoneList() {
-    if (document.getElementById("add-done-task").value == "") {
-        alert("write somthing...")
-        return
-    }
-    let list = document.getElementById("done-tasks-list");
-    let newEl = document.createElement("li");
-    const taskToAdd = document.getElementById("add-done-task").value;
-    newEl.textContent = taskToAdd
-    newEl.setAttribute("id", "task")
-    newEl.classList.add("task");
-    newEl.setAttribute("tabindex", "-1")
-    newEl.addEventListener("mouseover", focusOnElement) // moving list event (alt + 1/2/3)
-    newEl.addEventListener("dblclick", editTask)  //edit event
-    list.append(newEl);
-}
-document.getElementById("submit-add-done").addEventListener("click", addToDoneList)
-
 
 //edit function:
 
